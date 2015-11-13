@@ -21,10 +21,7 @@ struct SteamInterface
     {
         Initialized = true;
     }
-    size_t GetIdentifier()
-    {
-        return FNV1a_Compiletime(__func__);
-    }
+    virtual size_t GetIdentifier() = 0;
     void *GetMethods()
     {
         return Methods;
@@ -38,7 +35,11 @@ void AddInterface(SteamInterface *Interface);
 // Forward declaration to save my fingers.
 #define INTERFACE_DEFINE(Name) \
 struct INTERFACE_ ## Name : public SteamInterface \
-{\
+{ \
+virtual size_t GetIdentifier() \
+{ \
+    return FNV1a_Compiletime(#Name); \
+} \
 virtual void Initialize(); \
 }
 
