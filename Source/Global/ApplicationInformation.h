@@ -15,4 +15,5 @@ namespace Global
     extern char ApplicationName[32];
     extern bool ApplicationOffline;
     extern bool ApplicationServer;
+    extern uint64_t ApplicationStart;
 };
