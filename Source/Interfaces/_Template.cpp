@@ -15,5 +15,7 @@
 
 void INTERFACE_TEMPLATE::Initialize()
 {
+    Methods = new void *[64];
 
+    Initialized = true;
 }
