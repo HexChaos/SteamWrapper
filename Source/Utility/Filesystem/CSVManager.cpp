@@ -74,6 +74,7 @@ bool CSVManager::ReadAll()
     // Clear the buffer to be safe.
     Buffer.clear();
     Buffer.shrink_to_fit();
+    Buffer.push_back(std::vector<std::string>());
 
 #pragma warning (suppress : 127)
     while(true)
@@ -83,7 +84,12 @@ bool CSVManager::ReadAll()
         {
         case '#':  SkipLine(); break;
         case '\n': Linecount++; Buffer.push_back(std::vector<std::string>());
-        case ',':  fread(&TempBuffer, 1, 1, Filehandle); break;
+        case '\r':
+        case ',':  
+            fread(&TempBuffer, 1, 1, Filehandle); 
+            if(Peek() == ',') 
+                Buffer[Linecount].push_back(""); 
+            break;
         case '\0': return true;
 
         // Append the item to the buffer.
