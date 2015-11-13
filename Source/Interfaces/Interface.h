@@ -8,6 +8,8 @@
 
 #pragma once
 #include "..\Utility\Crypto\FNV1.h"
+#include "..\Global\AyriaImports.h"
+#include "..\Global\ApplicationInformation.h"
 
 // Mapped interface.
 struct SteamInterface
