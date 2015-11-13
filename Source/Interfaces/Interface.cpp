@@ -25,7 +25,7 @@ void *FetchInterface(char *Name)
 
     if (!Interfaces[Identifier]->Initialized) 
         Interfaces[Identifier]->Initialize();
-    return Interfaces[FNV1a_Runtime(Name, strlen(Name))];
+    return Interfaces[Identifier]->GetMethods();
 }
 void AddInterface(SteamInterface *Interface)
 {

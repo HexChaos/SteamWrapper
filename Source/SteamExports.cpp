@@ -44,120 +44,123 @@ VideoInterface;
 
 extern "C"
 {
+#define INTERFACECALL(string) \
+void *Temp = FetchInterface((char *)string.c_str()); \
+return &Temp
+
     // Steam interface access.
     __declspec(dllexport) void *SteamAppList()
     {
-        return FetchInterface((char *)AppListInterface.c_str());
+        INTERFACECALL(AppListInterface);
     }
     __declspec(dllexport) void *SteamApps()
     {
-        return FetchInterface((char *)AppsInterface.c_str());
+        INTERFACECALL(AppsInterface);
     }
     __declspec(dllexport) void *SteamClient()
     {
-        return FetchInterface((char *)ClientInterface.c_str());
+        INTERFACECALL(ClientInterface);
     }
     __declspec(dllexport) void *SteamController()
     {
-        return FetchInterface((char *)ControllerInterface.c_str());
+        INTERFACECALL(ControllerInterface);
     }
     __declspec(dllexport) void *SteamFriends()
     {
-        return FetchInterface((char *)FriendsInterface.c_str());
+        INTERFACECALL(FriendsInterface);
     }
 
     __declspec(dllexport) void *SteamGameServer()
     {
-        return FetchInterface((char *)GameServerInterface.c_str());
+        INTERFACECALL(GameServerInterface);
     }
     __declspec(dllexport) void *SteamGameServerHTTP()
     {
-        return FetchInterface((char *)GameServerHTTPInterface.c_str());
+        INTERFACECALL(GameServerHTTPInterface);
     }
     __declspec(dllexport) void *SteamGameServerInventory()
     {
-        return FetchInterface((char *)GameServerInventoryInterface.c_str());
+        INTERFACECALL(GameServerInventoryInterface);
     }
     __declspec(dllexport) void *SteamGameServerNetworking()
     {
-        return FetchInterface((char *)GameServerNetworkingInterface.c_str());
+        INTERFACECALL(GameServerNetworkingInterface);
     }
     __declspec(dllexport) void *SteamGameServerStats()
     {
-        return FetchInterface((char *)GameServerStatsInterface.c_str());
+        INTERFACECALL(GameServerStatsInterface);
     }
     __declspec(dllexport) void *SteamGameServerUGC()
     {
-        return FetchInterface((char *)GameServerUGCInterface.c_str());
+        INTERFACECALL(GameServerUGCInterface);
     }
     __declspec(dllexport) void *SteamGameServerUtils()
     {
-        return FetchInterface((char *)GameServerUtilsInterface.c_str());
+        INTERFACECALL(GameServerUtilsInterface);
     }
-
     __declspec(dllexport) void *SteamHTMLSurface()
     {
-        return FetchInterface((char *)HTMLSurfaceInterface.c_str());
+        INTERFACECALL(HTMLSurfaceInterface);
     }
     __declspec(dllexport) void *SteamHTTP()
     {
-        return FetchInterface((char *)HTTPInterface.c_str());
+        INTERFACECALL(HTTPInterface);
     }   
     __declspec(dllexport) void *SteamInventory()
     {
-        return FetchInterface((char *)InventoryInterface.c_str());
+        INTERFACECALL(InventoryInterface);
     }
     __declspec(dllexport) void *SteamMatchmaking()
     {
-        return FetchInterface((char *)MatchmakingInterface.c_str());
+        INTERFACECALL(MatchmakingInterface);
     }
     __declspec(dllexport) void *SteamMatchmakingServers()
     {
-        return FetchInterface((char *)MatchmakingServersInterface.c_str());
+        INTERFACECALL(MatchmakingServersInterface);
     }
     __declspec(dllexport) void *SteamMusic()
     {
-        return FetchInterface((char *)MusicInterface.c_str());
+        INTERFACECALL(MusicInterface);
     }
     __declspec(dllexport) void *SteamMusicRemote()
     {
-        return FetchInterface((char *)MusicRemoteInterface.c_str());
+        INTERFACECALL(MusicRemoteInterface);
     }
     __declspec(dllexport) void *SteamNetworking()
     {
-        return FetchInterface((char *)NetworkingInterface.c_str());
+        INTERFACECALL(NetworkingInterface);
     }
     __declspec(dllexport) void *SteamRemoteStorage()
     {
-        return FetchInterface((char *)RemoteStorageInterface.c_str());
+        INTERFACECALL(RemoteStorageInterface);
     }
     __declspec(dllexport) void *SteamScreenshots()
     {
-        return FetchInterface((char *)ScreenshotsInterface.c_str());
+        INTERFACECALL(ScreenshotsInterface);
     }
     __declspec(dllexport) void *SteamUnifiedMessages()
     {
-        return FetchInterface((char *)UnifiedMessagesInterface.c_str());
+        INTERFACECALL(UnifiedMessagesInterface);
     }
     __declspec(dllexport) void *SteamUGC()
     {
-        return FetchInterface((char *)UGCInterface.c_str());
+        INTERFACECALL(UGCInterface);
     }
     __declspec(dllexport) void *SteamUser()
     {
-        return FetchInterface((char *)UserInterface.c_str());
+        INTERFACECALL(UserInterface);
     }
     __declspec(dllexport) void *SteamUserStats()
     {
-        return FetchInterface((char *)UserStatsInterface.c_str());
+        INTERFACECALL(UserStatsInterface);
     }
     __declspec(dllexport) void *SteamUtils()
     {
-        return FetchInterface((char *)UtilsInterface.c_str());
+        INTERFACECALL(UtilsInterface);
     }
     __declspec(dllexport) void *SteamVideo()
     {
-        return FetchInterface((char *)VideoInterface.c_str());
+        INTERFACECALL(VideoInterface);
     }
 
     // Initialization and shutdown.
@@ -175,7 +178,8 @@ extern "C"
     }
     __declspec(dllexport) bool SteamAPI_RestartAppIfNecessary(uint32_t unOwnAppID)
     {
-        return true;
+        Global::ApplicationID = unOwnAppID;
+        return false;
     }
     __declspec(dllexport) void SteamAPI_WriteMiniDump(uint32_t uStructuredExceptionCode, void* pvExceptionInfo, uint32_t uBuildID)
     {
