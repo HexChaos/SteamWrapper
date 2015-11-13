@@ -18,3 +18,4 @@ PluginLoader.sdf
 *.lib
 *.obj
 *.sdf
+*.user
