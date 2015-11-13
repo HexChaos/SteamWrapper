@@ -13,24 +13,6 @@
 // Internal map of all registered interfaces.
 std::unordered_map<size_t, SteamInterface *> Interfaces;
 
-// Dummy interface for debugging.
-void DummyMethod()
-{
-    DebugPrint("Steam interface called a dummy method");
-}
-struct DummyInterface : SteamInterface
-{
-    virtual void Initialize()
-    {
-        Methods = new void *[64];
-        
-        for (size_t i = 0; i < 64; ++i)
-            Methods[i] = DummyMethod;
-
-        Initialized = true;
-    }
-};
-
 // Fetch and insert interfaces.
 void *FetchInterface(char *Name)
 {
@@ -38,7 +20,7 @@ void *FetchInterface(char *Name)
 
     if (Interfaces.find(Identifier) == Interfaces.end())
     {
-        Interfaces[Identifier] = new DummyInterface;
+        Interfaces[Identifier] = new INTERFACE_DUMMY;
     }
 
     if (!Interfaces[Identifier]->Initialized) 

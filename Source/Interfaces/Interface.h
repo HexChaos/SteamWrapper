@@ -35,10 +35,14 @@ void AddInterface(SteamInterface *Interface);
 
 // Forward declaration to save my fingers.
 #define INTERFACE_DEFINE(Name) \
-struct Name : public SteamInterface \
+struct INTERFACE_ ## Name : public SteamInterface \
 {\
 virtual void Initialize(); \
 }
+
+// Developer interfaces.
+INTERFACE_DEFINE(TEMPLATE);
+INTERFACE_DEFINE(DUMMY);
 
 // Steam interfaces.
 INTERFACE_DEFINE(STEAMAPPS001);
