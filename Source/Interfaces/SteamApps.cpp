@@ -3,7 +3,7 @@
     License: LGPL 3.0
     Started: 2015-11-13
     Notes:
-        
+        Application information.
 */
 
 #include "Interface.h"
@@ -306,4 +306,3 @@ void INTERFACE_STEAMAPPS007::Initialize()
 
     Initialized = true;
 }
-
