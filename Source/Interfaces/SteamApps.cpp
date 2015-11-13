@@ -273,17 +273,36 @@ void INTERFACE_STEAMAPPS006::Initialize()
     Methods[20] = GetAppOwner;
     Methods[21] = GetLaunchQueryParam;
 
-    Methods[22] = GetDlcDownloadProgress;
-    Methods[23] = GetAppBuildId;
-
     Initialized = true;
 }
 void INTERFACE_STEAMAPPS007::Initialize()
 {
-    Methods = new void *[64];
+    Methods = new void *[24];
 
-    for (size_t i = 0; i < 64; ++i)
-        Methods[i] = nullptr;
+    Methods[0] = BIsSubscribed;
+    Methods[1] = BIsLowViolence;
+    Methods[2] = BIsCybercafe;
+    Methods[3] = BIsVACBanned;
+    Methods[4] = GetCurrentGameLanguage;
+    Methods[5] = GetAvailableGameLanguages;
+    Methods[6] = BIsSubscribedApp;
+    Methods[7] = BIsSubscribedApp;
+    Methods[8] = GetEarliestPurchaseUnixTime;
+    Methods[9] = BIsSubscribedFromFreeWeekend;
+    Methods[10] = GetDLCCount;
+    Methods[11] = BGetDLCDataByIndex;
+    Methods[12] = InstallDLC;
+    Methods[13] = UninstallDLC;
+    Methods[14] = RequestAppProofOfPurchaseKey;
+    Methods[15] = GetCurrentBetaName;
+    Methods[16] = MarkContentCorrupt;
+    Methods[17] = GetInstalledDepots;
+    Methods[18] = GetAppInstallDir;
+    Methods[19] = BIsSubscribedApp;
+    Methods[20] = GetAppOwner;
+    Methods[21] = GetLaunchQueryParam;
+    Methods[22] = GetDlcDownloadProgress;
+    Methods[23] = GetAppBuildId;
 
     Initialized = true;
 }
