@@ -62,6 +62,28 @@ void RegisterInterfaces()
     AddInterface(new INTERFACE_STEAMUTILS005);
     AddInterface(new INTERFACE_STEAMUTILS006);
     AddInterface(new INTERFACE_STEAMUTILS007);
+
+    /*
+    Missing SDK information.
+    AddInterface(new INTERFACE_STEAMUSER001);
+    AddInterface(new INTERFACE_STEAMUSER002);
+    AddInterface(new INTERFACE_STEAMUSER003);
+    */
+    AddInterface(new INTERFACE_STEAMUSER004);
+    AddInterface(new INTERFACE_STEAMUSER005);
+    AddInterface(new INTERFACE_STEAMUSER006);
+    AddInterface(new INTERFACE_STEAMUSER007);
+    AddInterface(new INTERFACE_STEAMUSER008);
+    AddInterface(new INTERFACE_STEAMUSER009);
+    AddInterface(new INTERFACE_STEAMUSER010);
+    AddInterface(new INTERFACE_STEAMUSER011);
+    AddInterface(new INTERFACE_STEAMUSER012);
+    AddInterface(new INTERFACE_STEAMUSER013);
+    AddInterface(new INTERFACE_STEAMUSER014);
+    AddInterface(new INTERFACE_STEAMUSER015);
+    AddInterface(new INTERFACE_STEAMUSER016);
+    AddInterface(new INTERFACE_STEAMUSER017);
+    AddInterface(new INTERFACE_STEAMUSER018);
 }
 
 extern "C"
