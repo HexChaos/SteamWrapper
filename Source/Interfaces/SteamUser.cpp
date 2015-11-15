@@ -9,44 +9,53 @@
 
 #include "Interface.h"
 #include "..\Macros.h"
+#include "CSteamID.h"
 
 #pragma region Methods
 int32_t GetHSteamUser()
 {
+    PrintFunction();
     // We do not pipe to steam.
     return 0;
 }
 void LogOn(uint64_t steamID)
 {
-
+    PrintFunction();
 }
 void LogOff()
 {
-
+    PrintFunction();
 }
 bool BLoggedOn()
 {
+    PrintFunction();
     return true;
 }
 uint32_t GetLogonState()
 {
+    PrintFunction();
     // k_ELogonStateLoggingOn
     return 1;
 }
 bool BConnected()
 {
+    PrintFunction();
     return true;
 }
-uint64_t GetSteamID()
+CSteamID GetSteamID()
 {
+    PrintFunction();
     uint32_t ApplicationID = Global::ApplicationID;
-    uint64_t PlayerID = 0;
+    static uint64_t PlayerID = 0x1100001DEADC0DE;
 
-    AYRIADEVELOPER("FetchPlayerID", ApplicationID, PlayerID);
-    return PlayerID;
+    if(PlayerID == 0x1100001DEADC0DE)
+        AYRIADEVELOPER("FetchPlayerID", ApplicationID, PlayerID);
+
+    return CSteamID(PlayerID);
 }
 bool IsVACBanned(uint32_t eVACBan)
 {
+    PrintFunction();
     uint32_t ApplicationID = Global::ApplicationID;
     bool Banned = false;
 
@@ -55,193 +64,224 @@ bool IsVACBanned(uint32_t eVACBan)
 }
 bool RequireShowVACBannedMessage(uint32_t eVACBan)
 {
+    PrintFunction();
     return false;
 }
 void AcknowledgeVACBanning(uint32_t eVACBan)
 {
+    PrintFunction();
 }
 int NClientGameIDAdd(int nGameID)
 {
+    PrintFunction();
     return 0;
 }
 void RemoveClientGame(int nClientGameID)
 {
+    PrintFunction();
 }
 void SetClientGameServer(int nClientGameID, uint32_t unIPServer, uint16_t usPortServer)
 {
-
+    PrintFunction();
 }
 void SetSteam2Ticket(uint8_t *pubTicket, int cubTicket)
 {
-
+    PrintFunction();
 }
 void AddServerNetAddress(uint32_t unIP, uint16_t unPort)
 {
-
+    PrintFunction();
 }
 bool SetEmail(const char *pchEmail)
 {
+    PrintFunction();
     return false;
 }
 int GetSteamGameConnectToken(void *pBlob, int cbMaxBlob)
 {
+    PrintFunction();
     return 0;
 }
 bool SetRegistryString(uint32_t eRegistrySubTree, const char *pchKey, const char *pchValue)
 {
+    PrintFunction();
     // TODO: Implement this.
     return false;
 }
 bool GetRegistryString(uint32_t eRegistrySubTree, const char *pchKey, char *pchValue, int cbValue)
 {
+    PrintFunction();
     // TODO: Implement this.
     return false;
 }
 bool SetRegistryInt(uint32_t eRegistrySubTree, const char *pchKey, int iValue)
 {
+    PrintFunction();
     // TODO: Implement this.
     return false;
 }
 bool GetRegistryInt(uint32_t eRegistrySubTree, const char *pchKey, int *piValue)
 {
+    PrintFunction();
     // TODO: Implement this.
     return false;
 }
 int InitiateGameConnection(void *pBlob, int cbMaxBlob, uint64_t steamID, int nGameAppID, uint32_t unIPServer, uint16_t usPortServer, bool bSecure)
 {
+    PrintFunction();
     return 0;
 }
 void TerminateGameConnection(uint32_t unIPServer, uint16_t usPortServer)
 {
-
+    PrintFunction();
 }
 void SetSelfAsPrimaryChatDestination()
 {
-
+    PrintFunction();
 }
 bool IsPrimaryChatDestination()
 {
+    PrintFunction();
     return false;
 }
 void RequestLegacyCDKey(uint32_t iAppID)
 {
-
+    PrintFunction();
 }
 
 bool SendGuestPassByEmail(const char *pchEmailAccount, uint64_t gidGuestPassID, bool bResending)
 {
+    PrintFunction();
     return false;
 }
 bool SendGuestPassByAccountID(uint32_t uAccountID, uint64_t gidGuestPassID, bool bResending)
 {
+    PrintFunction();
     return false;
 }
 bool AckGuestPass(const char *pchGuestPassCode)
 {
+    PrintFunction();
     return false;
 }
 bool RedeemGuestPass(const char *pchGuestPassCode)
 {
+    PrintFunction();
     return false;
 }
 uint32_t GetGuestPassToGiveCount()
 {
+    PrintFunction();
     return 0;
 }
 uint32_t GetGuestPassToRedeemCount()
 {
+    PrintFunction();
     return 0;
 }
 uint32_t GetGuestPassLastUpdateTime()
 {
+    PrintFunction();
     return 0;
 }
 bool GetGuestPassToGiveInfo(uint32_t nPassIndex, uint64_t *pgidGuestPassID, uint32_t* pnPackageID, uint32_t *pRTime32Created, uint32_t *pRTime32Expiration, uint32_t *pRTime32Sent, uint32_t *pRTime32Redeemed, char * pchRecipientAddress, int cRecipientAddressSize)
 {
+    PrintFunction();
     return false;
 }
 bool GetGuestPassToRedeemInfo(uint32_t nPassIndex, uint64_t *pgidGuestPassID, uint32_t* pnPackageID, uint32_t* pRTime32Created, uint32_t* pRTime32Expiration, uint32_t* pRTime32Sent, uint32_t* pRTime32Redeemed)
 {
+    PrintFunction();
     return false;
 }
 bool GetGuestPassToRedeemSenderAddress(uint32_t nPassIndex, char* pchSenderAddress, int cSenderAddressSize)
 {
+    PrintFunction();
     return false;
 }
 bool GetGuestPassToRedeemSenderName(uint32_t nPassIndex, char* pchSenderName, int cSenderNameSize)
 {
+    PrintFunction();
     return false;
 }
 void AcknowledgeMessageByGID(const char *pchMessageGID)
 {
-
+    PrintFunction();
 }
 bool SetLanguage(const char *pchLanguage)
 {
+    PrintFunction();
     return false;
 }
 void TrackAppUsageEvent(uint64_t gameID, uint32_t eAppUsageEvent, const char *pchExtraInfo = "")
 {
-
+    PrintFunction();
 }
 void SetAccountName(const char* pchAccountName)
 {
-
+    PrintFunction();
 }
 void SetPassword(const char* pchPassword)
 {
-
+    PrintFunction();
 }
 void SetAccountCreationTime(uint32_t rtime32Time)
 {
-
+    PrintFunction();
 }
 
 void RefreshSteam2Login()
 {
-
+    PrintFunction();
 }
 
 bool GetUserDataFolder(char *pchBuffer, int cubBuffer)
 {
+    PrintFunction();
     return false;
 }
 void StartVoiceRecording()
 {
-
+    PrintFunction();
 }
 void StopVoiceRecording()
 {
-
+    PrintFunction();
 }
 uint32_t GetCompressedVoice(void *pDestBuffer, uint32_t cbDestBufferSize, uint32_t *nBytesWritten)
 {
+    PrintFunction();
     // k_EVoiceResultOK
     return 0;
 }
 uint32_t DecompressVoice(void *pCompressed, uint32_t cbCompressed, void *pDestBuffer, uint32_t cbDestBufferSize, uint32_t *nBytesWritten)
 {
+    PrintFunction();
     // k_EVoiceResultOK
     return 0;
 }
 
 uint32_t GetAuthSessionTicket(void *pTicket, int cbMaxTicket, uint32_t *pcbTicket)
 {
+    PrintFunction();
     return 0;
 }
 uint32_t BeginAuthSession(const void *pAuthTicket, int cbAuthTicket, uint64_t steamID)
 {
+    PrintFunction();
     return 0;
 }
 void EndAuthSession(uint64_t steamID)
 {
-
+    PrintFunction();
 }
 void CancelAuthTicket(uint32_t hAuthTicket)
 {
+    PrintFunction();
 }
 uint32_t UserHasLicenseForApp(uint64_t steamID, uint32_t appID)
 {
+    PrintFunction();
     uint32_t ApplicationID = Global::ApplicationID;
     bool Owned = false;
 
@@ -254,16 +294,19 @@ uint32_t UserHasLicenseForApp(uint64_t steamID, uint32_t appID)
 
 uint32_t GetAvailableVoice(uint32_t *pcbCompressed, uint32_t *pcbUncompressed)
 {
+    PrintFunction();
     // k_EVoiceResultOK
     return 0;
 }
 uint32_t GetVoice(bool bWantCompressed, void *pDestBuffer, uint32_t cbDestBufferSize, uint32_t *nBytesWritten, bool bWantUncompressed, void *pUncompressedDestBuffer, uint32_t cbUncompressedDestBufferSize, uint32_t *nUncompressBytesWritten)
 {
+    PrintFunction();
     // k_EVoiceResultOK
     return 0;
 }
 bool BIsBehindNAT()
 {
+    PrintFunction();
     uint64_t Result = 0;
 
     AYRIACLIENT("FetchNATStatus", &Result);
@@ -272,35 +315,41 @@ bool BIsBehindNAT()
 
 void AdvertiseGame(uint64_t steamIDGameServer, uint32_t unIPServer, uint16_t usPortServer)
 {
-
+    PrintFunction();
 }
 uint64_t RequestEncryptedAppTicket(void *pDataToInclude, int cbDataToInclude)
 {
+    PrintFunction();
     // TODO: Implement this when callbacks are done.
     return 0;
 }
 bool GetEncryptedAppTicket(void *pTicket, int cbMaxTicket, uint32_t *pcbTicket)
 {
+    PrintFunction();
     // TODO: Implement this when callbacks are done.
     return false;
 }
 
 uint32_t GetVoiceOptimalSampleRate()
 {
+    PrintFunction();
     return 44100;
 }
 
 int GetGameBadgeLevel(int nSeries, bool bFoil)
 {
+    PrintFunction();
     return 5;
 }
 int GetPlayerSteamLevel()
 {
+    PrintFunction();
     return 42;
 }
 
 uint64_t RequestStoreAuthURL(const char *pchRedirectURL)
 {
+    PrintFunction();
     // TODO: Implement this when callbacks are done.
     return 0;
 }

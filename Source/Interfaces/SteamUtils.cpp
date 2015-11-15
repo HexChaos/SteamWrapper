@@ -14,24 +14,29 @@
 #pragma region Methods
 uint32_t GetSecondsSinceAppActive()
 {
+    PrintFunction();
     return (GetTickCount64() - Global::ApplicationStart) / 1000;
 }
 uint32_t GetSecondsSinceComputerActive()
 {
+    PrintFunction();
     return GetTickCount64() / 1000;
 }
 uint32_t GetConnectedUniverse()
 {
+    PrintFunction();
     // k_EUniversePublic
     return 1;
 }
 uint32_t GetServerRealTime()
 {
+    PrintFunction();
     return time(NULL);
 }
 
 const char *GetIPCountry()
 {
+    PrintFunction();
     static uint64_t Geolocation = 0;
 
     if (AYRIACLIENT("FetchGeolocation", &Geolocation))
@@ -41,87 +46,103 @@ const char *GetIPCountry()
 }
 bool GetImageSize(int iImage, uint32_t *pnWidth, uint32_t *pnHeight)
 {
+    PrintFunction();
     // We do not handle any image requests.
     return false;
 }
 bool GetImageRGBA(int iImage, uint8_t *pubDest, int nDestBufferSize)
 {
+    PrintFunction();
     // We do not handle any image requests.
     return false;
 }
 bool GetCSERIPPort(uint32_t *unIP, uint16_t *usPort)
 {
+    PrintFunction();
     // As we don't connect to steam directly, this is not needed.
     return false;
 }
 uint8_t GetCurrentBatteryPower()
 {
+    PrintFunction();
     // We are always on AC power.
     return 255;
 }
 
 uint32_t GetAppID()
 {
+    PrintFunction();
     return Global::ApplicationID;
 }
 void SetOverlayNotificationPosition(uint32_t eNotificationPosition)
 {
-
+    PrintFunction();
 }
 bool IsAPICallCompleted(uint64_t hSteamAPICall, bool *pbFailed)
 {
+    PrintFunction();
     return false;
 }
 uint32_t GetAPICallFailureReason(uint64_t hSteamAPICall)
 {
+    PrintFunction();
     return 0;
 }
 bool GetAPICallResult(uint64_t hSteamAPICall, void *pCallback, int cubCallback, int iCallbackExpected, bool *pbFailed)
 {
+    PrintFunction();
     return false;
 }
 void RunFrame()
 {
-
+    PrintFunction();
 }
 uint32_t GetIPCCallCount()
 {
+    PrintFunction();
     // Debug information.
     return 100;
 }
 void SetWarningMessageHook(size_t pFunction)
 {
-
+    PrintFunction();
 }
 
 bool IsOverlayEnabled()
 {
+    PrintFunction();
     return false;
 }
 
 bool BOverlayNeedsPresent()
 {
+    PrintFunction();
     return false;
 }
 uint64_t CheckFileSignature(const char *szFileName)
 {
+    PrintFunction();
     return 0;
 }
 bool ShowGamepadTextInput(uint32_t eInputMode, uint32_t eInputLineMode, const char *szText, uint32_t uMaxLength)
 {
+    PrintFunction();
     return false;
 }
 uint32_t GetEnteredGamepadTextLength()
 {
+    PrintFunction();
     return 0;
 }
 bool GetEnteredGamepadTextInput(char *pchValue, uint32_t cchValueMax)
 {
+    PrintFunction();
     return false;
 }
 
 const char *GetSteamUILanguage()
 {
+    PrintFunction();
     uint32_t ApplicationID = Global::ApplicationID;
     static char Language[64]{};
 
@@ -132,6 +153,7 @@ const char *GetSteamUILanguage()
 }
 bool IsSteamRunningInVR()
 {
+    PrintFunction();
     return false;
 }
 

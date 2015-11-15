@@ -8,11 +8,13 @@
 
 #include "Interface.h"
 #include "..\Macros.h"
+#include "CSteamID.h"
 #include <direct.h>
 
 #pragma region Methods
 int GetAppData(uint32_t nAppID, const char *pchKey, char *pchValue, int cchValueMax)
 {
+    PrintFunction();
     uint64_t Key = FNV1a_Runtime((char *)pchKey, strlen(pchKey));
     char Value[33]{};
 
@@ -27,6 +29,7 @@ int GetAppData(uint32_t nAppID, const char *pchKey, char *pchValue, int cchValue
 
 bool BIsSubscribed()
 {
+    PrintFunction();
     uint32_t ApplicationID = Global::ApplicationID;
     bool Subscribed = false;
 
@@ -35,17 +38,20 @@ bool BIsSubscribed()
 }
 bool BIsLowViolence()
 {
+    PrintFunction();
     // Ayria does not have a setting for this.
     // TODO: Maybe add it.
     return false;
 }
 bool BIsCybercafe()
 {
+    PrintFunction();
     // Not registered by Ayria.
     return false;
 }
 bool BIsVACBanned()
 {
+    PrintFunction();
     uint32_t ApplicationID = Global::ApplicationID;
     bool Banned = false;
 
@@ -54,6 +60,7 @@ bool BIsVACBanned()
 }
 const char *GetCurrentGameLanguage()
 {
+    PrintFunction();
     uint32_t ApplicationID = Global::ApplicationID;
     static char Language[64]{};
 
@@ -64,10 +71,12 @@ const char *GetCurrentGameLanguage()
 }
 const char *GetAvailableGameLanguages()
 {
+    PrintFunction();
     return GetCurrentGameLanguage();
 }
 bool BIsSubscribedApp(uint32_t nAppID)
 {
+    PrintFunction();
     uint32_t ApplicationID = nAppID;
     bool Subscribed = false;
 
@@ -77,70 +86,84 @@ bool BIsSubscribedApp(uint32_t nAppID)
 
 uint32_t GetEarliestPurchaseUnixTime(uint32_t nAppID)
 {
+    PrintFunction();
     // This information is not available to third parties.
     return 0;
 }
 bool BIsSubscribedFromFreeWeekend()
 {
+    PrintFunction();
     // Ayria does not offer free weekends.
     return false;
 }
 int GetDLCCount()
 {
+    PrintFunction();
     // TODO: Implement this in Ayria.
     return 0;
 }
 bool BGetDLCDataByIndex(int iDLC, uint32_t *pAppID, bool *pbAvailable, char *pchName, int cchNameBufferSize)
 {
+    PrintFunction();
     // This will be using the keyvalue storage when DLC count is implemented.
     return false;
 }
 void InstallDLC(uint32_t nAppID)
 {
+    PrintFunction();
     // TODO: Notify the backend about DLC being added.
 }
 void UninstallDLC(uint32_t nAppID)
 {
+    PrintFunction();
     // TODO: Notify the backend about DLC being removed.
 }
 
 void RequestAppProofOfPurchaseKey(uint32_t nAppID)
 {
-
+    PrintFunction();
 }
 bool GetCurrentBetaName(char *pchName, int cchNameBufferSize)
 {
+    PrintFunction();
     strcpy_s(pchName, cchNameBufferSize, "public");
     return true;
 }
 bool MarkContentCorrupt(bool bMissingFilesOnly)
 {
+    PrintFunction();
     // TODO: Notify the backend.
     return true;
 }
 uint32_t GetInstalledDepots(uint32_t *pvecDepots, uint32_t cMaxDepots)
 {
+    PrintFunction();
     // Ayria does not currently support repositories so this can't be implemented.
     return 0;
 }
 uint32_t GetAppInstallDir(uint32_t appID, char *pchFolder, uint32_t cchFolderBufferSize)
 {
+    PrintFunction();
     // Ayria assumes that all content exists in the main folder.
     _getcwd(pchFolder, cchFolderBufferSize);
     return strlen(pchFolder);
 }
 
-uint64_t GetAppOwner()
+CSteamID GetAppOwner()
 {
+    PrintFunction();
     // Ayria does not support family sharing like steam.
     uint32_t ApplicationID = Global::ApplicationID;
-    uint64_t PlayerID = 0;
+    static uint64_t PlayerID = 0x1100001DEADC0DE;
 
-    AYRIADEVELOPER("FetchPlayerID", ApplicationID, PlayerID);
-    return PlayerID;
+    if(PlayerID == 0x1100001DEADC0DE)
+        AYRIADEVELOPER("FetchPlayerID", ApplicationID, PlayerID);
+
+    return CSteamID(PlayerID);
 }
 const char *GetLaunchQueryParam(const char *pchKey)
 {
+    PrintFunction();
     // Developer only keys.
     if (strstr(pchKey, "@"))
         return "";
@@ -150,11 +173,13 @@ const char *GetLaunchQueryParam(const char *pchKey)
 
 bool GetDlcDownloadProgress(uint32_t nAppID, uint64_t *punBytesDownloaded, uint64_t *punBytesTotal)
 {
+    PrintFunction();
     // This is just a wrapper, we don't download anything from steam.
     return false;
 }
 int GetAppBuildId()
 {
+    PrintFunction();
     // No one cares about this anyways.
     return 0;
 }
