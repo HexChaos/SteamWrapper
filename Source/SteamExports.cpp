@@ -84,6 +84,22 @@ void RegisterInterfaces()
     AddInterface(new INTERFACE_STEAMUSER016);
     AddInterface(new INTERFACE_STEAMUSER017);
     AddInterface(new INTERFACE_STEAMUSER018);
+
+    AddInterface(new INTERFACE_STEAMFRIENDS001);
+    AddInterface(new INTERFACE_STEAMFRIENDS002);
+    AddInterface(new INTERFACE_STEAMFRIENDS003);
+    AddInterface(new INTERFACE_STEAMFRIENDS004);
+    AddInterface(new INTERFACE_STEAMFRIENDS005);
+    AddInterface(new INTERFACE_STEAMFRIENDS006);
+    AddInterface(new INTERFACE_STEAMFRIENDS007);
+    AddInterface(new INTERFACE_STEAMFRIENDS008);
+    AddInterface(new INTERFACE_STEAMFRIENDS009);
+    AddInterface(new INTERFACE_STEAMFRIENDS010);
+    AddInterface(new INTERFACE_STEAMFRIENDS011);
+    AddInterface(new INTERFACE_STEAMFRIENDS012);
+    AddInterface(new INTERFACE_STEAMFRIENDS013);
+    AddInterface(new INTERFACE_STEAMFRIENDS014);
+    AddInterface(new INTERFACE_STEAMFRIENDS015);
 }
 
 extern "C"
